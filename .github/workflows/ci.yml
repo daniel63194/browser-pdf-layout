@@ -19,8 +19,9 @@ jobs:
         with:
           node-version: '24'
       - run: npm install
+      - run: npm test
       - run: npm run build
-      
+
   release:
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'

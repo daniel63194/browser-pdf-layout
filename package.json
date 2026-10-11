@@ -2,22 +2,47 @@
   "name": "@daniel63194/browser-pdf-layout",
   "version": "0.1.0",
   "description": "Zero-backend utility to resize and add print margins to PDFs in the browser.",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "test": "vitest run",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["pdf", "pdf-lib", "layout", "margins", "browser", "react", "print"],
+  "keywords": [
+    "pdf",
+    "pdf-lib",
+    "layout",
+    "margins",
+    "browser",
+    "react",
+    "print"
+  ],
   "author": "daniel63194",
   "license": "MIT",
- "dependencies": {
-  "pdf-lib": "^1.17.1"
-},
- "devDependencies": {
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
     "@types/node": "^20.0.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
@@ -26,5 +51,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/daniel63194/browser-pdf-layout.git"
+  },
+  "homepage": "https://github.com/daniel63194/browser-pdf-layout#readme",
+  "bugs": "https://github.com/daniel63194/browser-pdf-layout/issues",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
