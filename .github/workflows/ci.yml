@@ -14,11 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: npm ci
+          node-version: '24'
+      - run: npm install
       - run: npm run build
       
   release:
@@ -31,9 +31,11 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
-      - run: npm ci
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -46,11 +48,11 @@ jobs:
       security-events: write
       id-token: write
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: "Run analysis"
-        uses: ossf/scorecard-action@0864cf19026789058feabb7e87baa5f140aac736
+        uses: ossf/scorecard-action@v2.3.1
         with:
           results_format: sarif
           results_file: results.sarif
