@@ -12,7 +12,7 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": ["pdf", "pdf-lib", "layout", "margins", "browser", "react", "print"],
-  "author": "",
+  "author": "daniel63194",
   "license": "MIT",
  "dependencies": {
   "pdf-lib": "^1.17.1"
@@ -23,4 +23,8 @@
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   }
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/daniel63194/browser-pdf-layout.git"
+}
 }
