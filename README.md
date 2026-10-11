@@ -1,6 +1,6 @@
 # browser-pdf-layout
 
-Zero-backend utility to resize and add print margins to PDFs in the browser.
+Useful Zero-backend utility to resize and add print margins to PDFs in the browser.
 
 ## Installation
 
